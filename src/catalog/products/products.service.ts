@@ -1,9 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { ClientProxy } from '@nestjs/microservices';
 import { CreateProductDto } from './dto/create-product.dto';
 
 @Injectable()
 export class ProductsService {
+  constructor(
+    @Inject('CATALOG_SERVICE') private catalogServiceProxy: ClientProxy,
+  ) {}
+
   async create(createProductDto: CreateProductDto) {
-    console.log(createProductDto);
+    this.catalogServiceProxy.emit<CreateProductDto>(
+      'catalog/create_product',
+      createProductDto,
+    );
   }
 }
