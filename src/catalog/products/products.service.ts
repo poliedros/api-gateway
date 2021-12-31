@@ -14,4 +14,8 @@ export class ProductsService {
       createProductDto,
     );
   }
+
+  async findAll() {
+    return this.catalogServiceProxy.send('catalog/find_products', {});
+  }
 }

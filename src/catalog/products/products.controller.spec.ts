@@ -18,7 +18,8 @@ describe('ProductsController', () => {
         {
           provide: ProductsService,
           useValue: {
-            create: jest.fn().mockResolvedValue(createProductDto),
+            create: jest.fn(),
+            find: jest.fn().mockResolvedValue([createProductDto]),
           },
         },
       ],
