@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  CacheInterceptor,
+  CacheKey,
+  CacheTTL,
+  Controller,
+  Get,
+  Post,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 
@@ -12,6 +21,8 @@ export class ProductsController {
   }
 
   @Get()
+  @CacheTTL(300)
+  @UseInterceptors(CacheInterceptor)
   async get() {
     return await this.productService.findAll();
   }
