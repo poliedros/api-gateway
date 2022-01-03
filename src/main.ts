@@ -3,6 +3,8 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 function printRoutes(app: INestApplication) {
+  console.log(`Routes available for fd-api: \n`);
+
   const server = app.getHttpServer();
   const router = server._events.request._router;
 
