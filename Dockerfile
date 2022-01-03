@@ -17,6 +17,9 @@ FROM node:16.13.1 as production
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
+ARG REDIS_URL=host.docker.internal
+ENV REDIS_URL=${REDIS_URL}
+
 WORKDIR /usr/src/app
 
 COPY package*.json ./
