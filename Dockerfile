@@ -17,8 +17,11 @@ FROM node:16.13.1 as production
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
-ARG REDIS_URL=host.docker.internal
-ENV REDIS_URL=${REDIS_URL}
+ARG REDIS_HOST=host.docker.internal
+ENV REDIS_HOST=${REDIS_HOST}
+
+ARG REDIS_PORT=6379
+ENV REDIS_PORT=${REDIS_PORT}
 
 WORKDIR /usr/src/app
 

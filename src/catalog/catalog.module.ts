@@ -14,15 +14,15 @@ import { ConfigModule } from '@nestjs/config';
         name: 'CATALOG_SERVICE',
         transport: Transport.REDIS,
         options: {
-          url: `redis://${process.env.REDIS_URL}:6379`,
+          url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
         },
       },
     ]),
     CacheModule.register<RedisClientOpts>({
       store: redisStore,
       // Store-specific configuration:
-      host: `${process.env.REDIS_URL}`,
-      port: 6379,
+      host: `${process.env.REDIS_HOST}`,
+      port: process.env.REDIS_PORT,
     }),
   ],
   controllers: [ProductsController],
