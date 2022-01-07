@@ -1,7 +1,6 @@
 import {
   Body,
   CacheInterceptor,
-  CacheKey,
   CacheTTL,
   Controller,
   Get,

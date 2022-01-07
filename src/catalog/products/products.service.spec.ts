@@ -1,4 +1,3 @@
-import { ClientProxy } from '@nestjs/microservices';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductsService } from './products.service';
 

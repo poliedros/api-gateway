@@ -22,6 +22,10 @@ describe('ProductsController', () => {
             find: jest.fn().mockResolvedValue([createProductDto]),
           },
         },
+        {
+          provide: 'CACHE_MANAGER',
+          useValue: {},
+        },
       ],
     }).compile();
 
