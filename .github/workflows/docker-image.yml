@@ -17,7 +17,7 @@ jobs:
         run: |
           DOCKER_IMAGE=${{ secrets.DOCKER_USERNAME }}/${GITHUB_REPOSITORY#*/}
           VERSION=latest
-          SHORTREF=${GITHUB_SHA::8}
+          SHORTREF=${{ secrets.VERSION }}
           # If this is git tag, use the tag name as a docker tag
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
@@ -56,3 +56,11 @@ jobs:
           platforms: linux/arm64,linux/amd64
           push: true
           tags: ${{ steps.prep.outputs.tags }}
+          
+      - name: Update version
+        uses: hmanzur/actions-set-secret@v2.0.0
+        with:
+          name: 'VERSION'
+          value: $((${{ secrets.VERSION }}+1))
+          repository: poliedros/fd-api
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
