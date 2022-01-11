@@ -1,3 +1,5 @@
+import { jwtConstants } from './constants';
+import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from '../users/users.service';
 import { AuthService } from './auth.service';
@@ -14,6 +16,15 @@ describe('AuthService', () => {
           useValue: {
             findOne: jest.fn(),
           },
+        },
+        {
+          provide: JwtService,
+          useFactory: async () => ({
+            signOptions: {
+              expiresIn: '60s',
+            },
+            secretOrPrivateKey: jwtConstants.secret,
+          }),
         },
       ],
     }).compile();
