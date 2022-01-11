@@ -7,6 +7,11 @@ export type UserValidation = {
   username: string;
 };
 
+export type Payload = {
+  username: string;
+  sub: string;
+};
+
 @Injectable()
 export class AuthService {
   constructor(
@@ -29,7 +34,7 @@ export class AuthService {
   }
 
   async login(user: UserValidation) {
-    const payload = { username: user.username, sub: user.id };
+    const payload: Payload = { username: user.username, sub: user.id };
 
     return {
       access_token: this.jwtService.sign(payload),
