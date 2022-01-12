@@ -1,10 +1,10 @@
 import { CacheModule, Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { ConfigModule } from '@nestjs/config';
 import type { ClientOpts as RedisClientOpts } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
 import { ProductsController } from './products/products.controller';
 import { ProductsService } from './products/products.service';
-import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
