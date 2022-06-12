@@ -18,7 +18,7 @@ export class HealthController {
   check() {
     return this.healthCheckService.check([
       () =>
-        this.microserviceHealthCheck.pingCheck('catalog', {
+        this.microserviceHealthCheck.pingCheck('redis', {
           transport: Transport.REDIS,
           options: {
             host: `${process.env.REDIS_HOST}`,
