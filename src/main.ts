@@ -1,6 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { TimeoutInterceptor } from './interceptors/timeout.interceptor';
 
 function printRoutes(app: INestApplication) {
   console.log(`Routes available for fd-api: \n`);
@@ -25,6 +26,8 @@ function printRoutes(app: INestApplication) {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.useGlobalInterceptors(new TimeoutInterceptor());
   await app.listen(3000);
 
   printRoutes(app);
