@@ -23,7 +23,18 @@ describe('ProductService', () => {
     service = module.get<ProductsService>(ProductsService);
   });
 
-  it('should be defined', async () => {
+  it('should create be working', async () => {
+    await service.create({
+      name: 'pizza',
+      description: 'cheese',
+      price: 21,
+      tags: ['spice'],
+    });
+
+    expect(catalogServiceProxyProvider.emit.mock.calls.length).toEqual(1);
+  });
+
+  it('should findAll be working', async () => {
     const product: ProductDto = {
       name: 'pizza',
       description: 'a good pizza for a good consumer',
