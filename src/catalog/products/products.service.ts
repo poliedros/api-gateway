@@ -1,6 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
+import { Observable } from 'rxjs';
 import { CreateProductDto } from './dto/create-product.dto';
+import { ProductDto } from './dto/product.dto';
 
 @Injectable()
 export class ProductsService {
@@ -15,7 +17,10 @@ export class ProductsService {
     );
   }
 
-  async findAll() {
-    return this.catalogServiceProxy.send('catalog/find_products', {});
+  async findAll(): Promise<Observable<ProductDto>> {
+    return this.catalogServiceProxy.send<ProductDto>(
+      'catalog/find_products',
+      {},
+    );
   }
 }

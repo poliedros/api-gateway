@@ -1,5 +1,5 @@
 {
-  "name": "fd-api",
+  "name": "czar-api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -32,6 +32,7 @@
     "@nestjs/terminus": "^8.0.3",
     "cache-manager": "^3.6.0",
     "cache-manager-redis-store": "^2.0.0",
+    "jest-mock-extended": "^2.0.6",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
