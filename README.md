@@ -1,6 +1,7 @@
 # Czar-Api
 
 <a></a><img src="https://img.shields.io/github/workflow/status/poliedros/fd-api/test%20code" alt="Github Actions" /></a>
+<a>[![Coverage Status](https://coveralls.io/repos/github/poliedros/fd-api/badge.svg?branch=main)](https://coveralls.io/github/poliedros/fd-api?branch=main)</a>
 
 ## Description
 
