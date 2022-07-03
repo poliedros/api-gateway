@@ -1,7 +1,6 @@
 import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from '../users/users.service';
-import { jwtConstants } from './constants';
 import { AuthService } from './auth.service';
 import { User } from './../users/users.service';
 
