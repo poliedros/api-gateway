@@ -23,7 +23,7 @@ getProfile(@Request() req) {
 
 ### Timeout
 
-Timeout interceptor is global and used to stop a requisition if it takes more than 10 seconds.
+Timeout interceptor is global and used to timeout a requisition if it takes more than 10 seconds.
 
 ```
 app.useGlobalInterceptors(new TimeoutInterceptor());
@@ -35,7 +35,7 @@ Health module is used to check if the API itself is up and running and to check 
 
 ## Users
 
-Module to keep users' data. It can be used whatever database the project requires.
+Module to keep users' data saved. It can be used with whatever database the project requires.
 
 ## Architecture
 
