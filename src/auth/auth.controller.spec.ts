@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 
 describe('AuthController', () => {
   let controller: AuthController;
+  const loginMockFn = jest.fn();
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -12,8 +13,7 @@ describe('AuthController', () => {
         {
           provide: AuthService,
           useValue: {
-            validateUser: jest.fn(),
-            login: jest.fn(),
+            login: loginMockFn,
           },
         },
       ],
@@ -22,7 +22,15 @@ describe('AuthController', () => {
     controller = module.get<AuthController>(AuthController);
   });
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
+  it('should login', async () => {
+    const loginResult = { access_token: '323' };
+
+    loginMockFn.mockReturnValue(Promise.resolve(loginResult));
+
+    const req: any = { user: { username: 'carlos', pasword: '3' } };
+
+    const login = await controller.login(req);
+
+    expect(login).toEqual(loginResult);
   });
 });
