@@ -33,4 +33,12 @@ describe('AuthController', () => {
 
     expect(login).toEqual(loginResult);
   });
+
+  it('should get profile', async () => {
+    const profile = await controller.getProfile({
+      user: { username: 'carlos' },
+    });
+
+    expect(profile).toEqual({ username: 'carlos' });
+  });
 });
