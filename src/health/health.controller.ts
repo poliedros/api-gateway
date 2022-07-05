@@ -4,6 +4,7 @@ import {
   HealthCheckService,
   HealthCheck,
   MicroserviceHealthIndicator,
+  HealthCheckResult,
 } from '@nestjs/terminus';
 
 @Controller('health')
@@ -15,7 +16,7 @@ export class HealthController {
 
   @Get()
   @HealthCheck()
-  check() {
+  check(): Promise<HealthCheckResult> {
     return this.healthCheckService.check([
       () =>
         this.microserviceHealthCheck.pingCheck('redis', {
