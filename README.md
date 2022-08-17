@@ -1,11 +1,11 @@
-# Czar-Api
+# api-gateway
 
 <a></a><img src="https://img.shields.io/github/workflow/status/poliedros/api-gateway/test%20code" alt="Github Actions" /></a>
 <a>[![Coverage Status](https://coveralls.io/repos/github/poliedros/api-gateway/badge.svg?branch=main)](https://coveralls.io/github/poliedros/api-gateway?branch=main)</a>
 
 ## Description
 
-Czar Api is the facade api for projects
+Api gateway is the facade api for projects
 
 ## Auth
 
