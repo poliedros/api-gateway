@@ -75,5 +75,5 @@ jobs:
         with:
           name: 'VERSION'
           value: $((${{ secrets.VERSION }}+1))
-          repository: poliedros/fd-api
+          repository: poliedros/api-gateway
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
