@@ -22,8 +22,9 @@ export class HealthController {
         this.microserviceHealthCheck.pingCheck('redis', {
           transport: Transport.REDIS,
           options: {
-            host: `${process.env.REDIS_HOST}`,
+            host: process.env.REDIS_HOST,
             port: process.env.REDIS_PORT,
+            password: `${process.env.REDIS_AUTH_PASS}`,
           },
         }),
     ]);
