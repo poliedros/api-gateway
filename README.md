@@ -9,7 +9,7 @@ Api gateway is the facade api for projects
 
 ## Authentication
 
-To keep a route safe, use the _JwtAuthGuard_
+To keep a route safe, use _JwtAuthGuard_
 
 ```
 @UseGuards(JwtAuthGuard)
@@ -51,6 +51,12 @@ Timeout interceptor is global and used to timeout a requisition if it takes more
 app.useGlobalInterceptors(new TimeoutInterceptor());
 ```
 
+To change this time, jump to timeout.interceptor.ts and change this lin:
+
+```
+return next.handle().pipe(timeout(10000));
+```
+
 ## Health
 
 Health module is used to check if the API itself is up and running and to check other services.
@@ -73,24 +79,24 @@ $ npm install
 
 ```bash
 # development
-$ npm run start
+$ yarn start
 
 # watch mode
-$ npm run start:dev
+$ yarn start:dev
 
 # production mode
-$ npm run start:prod
+$ yarn start:prod
 ```
 
 ## Test
 
 ```bash
 # unit tests
-$ npm run test
+$ yarn test
 
 # e2e tests
-$ npm run test:e2e
+$ yarn test:e2e
 
 # test coverage
-$ npm run test:cov
+$ yarn test:cov
 ```
