@@ -72,7 +72,7 @@ Module to keep users' data saved. It can be used with whatever database the proj
 ## Installation
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Running the app
