@@ -7,7 +7,7 @@
 
 Api gateway is the facade api for projects
 
-## Auth
+## Authentication
 
 To keep a route safe, use the _JwtAuthGuard_
 
@@ -16,6 +16,28 @@ To keep a route safe, use the _JwtAuthGuard_
 @Get('profile')
 getProfile(@Request() req) {
   return req.user;
+}
+```
+
+## Authorization
+
+Add your role to role.enums.ts
+
+```
+export enum Role {
+  Admin = 'admin',
+  Other = 'other',
+}
+```
+
+Now, you can use it on your controllers
+
+```
+@UseGuards(JwtAuthGuard, RolesGuard)
+@Roles(Role.Admin)
+@Get('example')
+get(@Request() req) {
+  return ['Hello world'];
 }
 ```
 
