@@ -1,4 +1,5 @@
 import { JwtStrategy } from './jwt.strategy';
+import { Role } from './../enums/role.enum';
 
 describe('JwtStrategy', () => {
   let jwtStrategy: JwtStrategy;
@@ -9,8 +10,13 @@ describe('JwtStrategy', () => {
     const payload = await jwtStrategy.validate({
       sub: '3',
       username: 'carlos',
+      roles: [Role.Admin],
     });
 
-    expect(payload).toEqual({ id: payload.id, username: payload.username });
+    expect(payload).toEqual({
+      id: payload.id,
+      username: payload.username,
+      roles: [Role.Admin],
+    });
   });
 });

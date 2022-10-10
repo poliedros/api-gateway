@@ -1,4 +1,5 @@
 import { Test } from '@nestjs/testing';
+import { Role } from './../enums/role.enum';
 import { UsersModule } from './users.module';
 import { UsersService } from './users.service';
 
@@ -29,6 +30,7 @@ describe('Health Module', () => {
       id: '1',
       username: 'carlos',
       password: 'changeme',
+      roles: [Role.Admin],
     });
   });
 });

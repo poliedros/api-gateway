@@ -3,6 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from '../users/users.service';
 import { AuthService } from './auth.service';
 import { User } from './../users/users.service';
+import { Role } from './../enums/role.enum';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -38,6 +39,7 @@ describe('AuthService', () => {
       id: '3',
       username: 'carlos',
       password: 'test',
+      roles: [Role.Admin],
     };
 
     findOneMock.mockReturnValue(Promise.resolve(user));
@@ -57,7 +59,11 @@ describe('AuthService', () => {
   it('should login user', async () => {
     signMock.mockReturnValue('3a');
 
-    const token = await service.login({ id: '3', username: 'carlos' });
+    const token = await service.login({
+      id: '3',
+      username: 'carlos',
+      roles: [Role.Admin],
+    });
 
     expect(token).toEqual({ access_token: '3a' });
   });
