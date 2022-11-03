@@ -3,7 +3,7 @@ import { Test } from '@nestjs/testing';
 import { Role } from './../enums/role.enum';
 import { User } from './schemas/user.schema';
 import { UsersService } from './users.service';
-import { CreateUserDto } from './dtos/create.user.dto';
+import { CreateUserRequest } from './dtos/create-user-request.dto';
 
 describe('User Service', () => {
   let usersService: UsersService;
@@ -62,7 +62,7 @@ describe('User Service', () => {
 
     usersService = module.get<UsersService>(UsersService);
 
-    const createUserDto: CreateUserDto = {
+    const createUserDto: CreateUserRequest = {
       username: 'carlos',
       password: 'changeme',
       roles: [Role.Admin],

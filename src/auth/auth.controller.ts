@@ -17,7 +17,7 @@ import { JwtAuthGuard } from './jwt-auth.guard';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './local-auth.guard';
 
-class LoginDto {
+class LoginRequest {
   @ApiProperty()
   username: string;
 
@@ -35,7 +35,7 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
   @ApiOperation({ summary: 'Login user', description: 'forbidden' })
-  @ApiBody({ type: LoginDto })
+  @ApiBody({ type: LoginRequest })
   async login(@Request() req) {
     return this.authService.login(req.user);
   }

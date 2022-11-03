@@ -1,5 +1,5 @@
-import { CreateUserDto } from './dtos/create.user.dto';
 import { Test, TestingModule } from '@nestjs/testing';
+import { CreateUserRequest } from './dtos/create-user-request.dto';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import { Role } from './../enums/role.enum';
@@ -25,7 +25,7 @@ describe('UserController', () => {
   });
 
   it('should create user', async () => {
-    const createUserDto: CreateUserDto = {
+    const createUserDto: CreateUserRequest = {
       username: 'carlos',
       password: 'changeme',
       roles: [Role.Admin],
