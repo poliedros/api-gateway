@@ -1,5 +1,5 @@
-import { JwtStrategy } from './jwt.strategy';
 import { Role } from './../enums/role.enum';
+import { JwtStrategy } from './jwt.strategy';
 
 describe('JwtStrategy', () => {
   let jwtStrategy: JwtStrategy;
