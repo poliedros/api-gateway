@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { CreateUserRequest } from './dtos/create-user-request.dto';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
-import { Role } from './../enums/role.enum';
+import { Role } from '../auth/role.enum';
 
 describe('UserController', () => {
   let controller: UsersController;
