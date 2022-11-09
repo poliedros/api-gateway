@@ -10,7 +10,11 @@ export class UsersService {
   constructor(private readonly usersRepository: UsersRepository) {}
 
   async findOne(username: string) {
-    return this.usersRepository.findOne({ username });
+    try {
+      return await this.usersRepository.findOne({ username });
+    } catch (err) {
+      return null;
+    }
   }
 
   async create(createUserRequest: CreateUserRequest) {
